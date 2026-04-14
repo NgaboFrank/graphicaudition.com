@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <p class="section-kicker">&lt;&gt; about us &lt;/&gt;</p>
+    <h1 class="page-title">About Graphic Audition</h1>
+    <p class="page-sub">This page shows only your brand story.</p>
+  </div>
+</section>
+<section class="about-section patterned-section">
+  <div class="container split-grid">
+    <div class="section-copy reveal">
+      <h2>Who we are</h2>
+      <p class="about-lead">Premium visual design studio</p>
+      <p>Graphic Audition builds modern brand visuals that help businesses look more professional. We create work that is bold, clean, and ready for real-world business presentation.</p>
+    </div>
+    <div class="about-grid-cards reveal delay-1">
+      {% if portfolio|length > 6 %}<div class="about-card tall"><img src="{% static portfolio.6.image %}" alt="{{ portfolio.6.name }}"></div>{% endif %}
+      {% if portfolio|length > 7 %}<div class="about-card"><img src="{% static portfolio.7.image %}" alt="{{ portfolio.7.name }}"></div>{% endif %}
+      {% if portfolio|length > 8 %}<div class="about-card"><img src="{% static portfolio.8.image %}" alt="{{ portfolio.8.name }}"></div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
