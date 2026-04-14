@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: graphicaudition
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn graphic_audition.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"

@@ -1,0 +1,159 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<main>
+<section class="hero-section hero-toplink hero-premium-100">
+  <div class="container hero-grid refined-hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Graphic Audition #CreativeGrowth</p>
+      <h1>Your Partner For Your Brand’s Visual Growth!</h1>
+      <p class="hero-text">We craft high-quality, conversion-focused branding, social media visuals, flyers, mockups, and websites that help your business stand out with confidence.</p>
+      <div class="hero-actions">
+        <a href="/portfolio/" class="btn btn-yellow">VIEW OUR WORK</a>
+        <a href="/contact/" class="btn btn-link top-link-style">GET IN TOUCH <span>→</span></a>
+      </div>
+      <div class="hero-stats">
+        {% for stat in stats %}
+        <div class="stat-pill">
+          <strong>{{ stat.number }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hero-premium-panel reveal delay-1">
+      <div class="toplink-showcase-card">
+        <div class="showcase-label">Featured Creative</div>
+        <img src="{% static 'main/images/ga-creative-flyer.jpg' %}" alt="Featured creative work">
+      </div>
+      <div class="hero-floating-badge badge-one"><span>Brand Identity</span></div>
+      <div class="hero-floating-badge badge-two"><span>Website Design</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item reveal"><strong>Creative Direction</strong><span>Premium visuals for serious brands</span></div>
+    <div class="trust-item reveal"><strong>Fast Communication</strong><span>Clear updates and smooth revisions</span></div>
+    <div class="trust-item reveal"><strong>Mobile Friendly</strong><span>Modern layouts that work on phone</span></div>
+  </div>
+</section>
+
+<section class="quick-services-section patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; our services &lt;/&gt;</p>
+      <h2>What can we Do ?</h2>
+    </div>
+    <div class="quick-services-grid">
+      {% for service in services %}
+      <article class="quick-service-card reveal">
+        <div class="service-dot"></div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="about-home-clean patterned-section">
+  <div class="container about-home-grid">
+    <div class="about-home-copy reveal">
+      <p class="section-kicker">&lt;&gt; about us &lt;/&gt;</p>
+      <h2>Who we are</h2>
+      <p class="about-intro-label">At Graphic Audition,</p>
+      <p>We create premium design solutions tailored to help businesses look stronger online and offline. From brand identity and social media content to flyers, websites, and campaign visuals, our work is built to make your presentation cleaner, clearer, and more professional.</p>
+      <p>We focus on creative direction, consistency, and fast communication so every project feels smooth from idea to final delivery.</p>
+      <a href="/about/" class="btn btn-outline-blue">Learn More</a>
+    </div>
+    <div class="about-home-list reveal delay-1">
+      <div class="brand-chip">Brand Identity</div>
+      <div class="brand-chip">Website Design</div>
+      <div class="brand-chip">Social Media Design</div>
+      <div class="brand-chip">Campaign Visuals</div>
+      <div class="brand-chip">Flyers & Posters</div>
+      <div class="brand-chip">Mockups & Presentation</div>
+    </div>
+  </div>
+</section>
+
+<section class="packages-section patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; our packages &lt;/&gt;</p>
+      <h2>A Package for Everyone</h2>
+    </div>
+    <div class="packages-grid showcase-packages">
+      {% for package in packages %}
+      <article class="package-card {% if package.featured %}package-card-featured{% else %}package-card-dark{% endif %} reveal">
+        <div class="package-top-accent"></div>
+        <span class="package-badge">{{ package.tag }}</span>
+        <h3>{{ package.title }}</h3>
+        <ul class="package-list">
+          {% for feature in package.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+        <a href="/contact/" class="btn {% if package.featured %}btn-yellow{% else %}btn-package-yellow{% endif %}">{{ package.cta }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-home patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; our portfolio &lt;/&gt;</p>
+      <h2>The stories we’ve told</h2>
+    </div>
+    <div class="featured-grid">
+      {% for item in portfolio|slice:':6' %}
+      <article class="featured-card reveal">
+        <div class="featured-image"><img src="{% static item.image %}" alt="{{ item.name }}"></div>
+        <div class="featured-copy">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="center-btn"><a href="/portfolio/" class="btn btn-outline-blue">View Full Portfolio</a></div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container why-grid">
+    <div class="why-copy reveal">
+      <p class="section-kicker dark">&lt;&gt; why choose us &lt;/&gt;</p>
+      <h2>What set’s us apart</h2>
+      <p>We deliver design work through a creative, client-focused, and results-driven approach so your brand looks clear, modern, and professional.</p>
+    </div>
+    <div class="why-cards">
+      {% for reason in reasons %}
+      <article class="why-card reveal">
+        <h3>{{ reason.title }}</h3>
+        <p>{{ reason.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta-wrap">
+    <div class="cta-copy reveal">
+      <p class="section-kicker light">Ready to Elevate Your Brand?</p>
+      <h2>Take the first step toward stronger creative work.</h2>
+      <p>Let’s build visuals that make your business look serious, polished, and ready for growth.</p>
+    </div>
+    <div class="cta-actions reveal delay-1">
+      <a href="/contact/" class="btn btn-yellow">Start a Project</a>
+      <a href="/about/" class="btn btn-outline-light">Learn more</a>
+    </div>
+  </div>
+</section>
+</main>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <a href="/" class="back-link">← Back to Home</a>
+    <p class="section-kicker">&lt;&gt; contact us &lt;/&gt;</p>
+    <h1 class="page-title">Let’s talk about your project</h1>
+    <p class="page-sub">Reach us directly by call or WhatsApp.</p>
+  </div>
+</section>
+
+<section class="contact-form-section patterned-section">
+  <div class="container contact-form-grid premium-contact-grid">
+    <div class="contact-copy reveal">
+      <h2>Direct contact only</h2>
+      <p>For branding, social media design, flyers, and websites, contact Graphic Audition directly using the options below.</p>
+      <div class="contact-info-card">
+        <strong>Phone</strong>
+        <span>{{ phone_display }}</span>
+      </div>
+      <div class="contact-info-card">
+        <strong>WhatsApp</strong>
+        <span>{{ phone_display }}</span>
+      </div>
+      <div class="contact-info-card">
+        <strong>Email</strong>
+        <span>{{ email }}</span>
+      </div>
+      <div class="contact-info-card">
+        <strong>Instagram</strong>
+        <span>@graphic_auditions</span>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal delay-1">
+      <h3 class="contact-card-title">Choose your contact method</h3>
+      <p class="contact-card-text">There is no form on this page, so there is no submit, CSRF, or email sending error.</p>
+      <div class="direct-contact-actions">
+        <a class="btn btn-yellow full-btn" href="tel:+{{ phone_link }}">Call Now</a>
+        <a class="btn btn-outline-blue full-btn" href="https://wa.me/{{ phone_link }}" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+        <a class="btn btn-outline-blue full-btn" href="{{ instagram_url }}" target="_blank" rel="noreferrer">Open Instagram</a>
+      </div>
+      <div class="contact-note-box">
+        <strong>Email</strong>
+        <p>{{ email }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
