@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <p class="section-kicker">&lt;&gt; our portfolio &lt;/&gt;</p>
+    <h1 class="page-title">Portfolio</h1>
+    <p class="page-sub">This page shows only your portfolio work.</p>
+  </div>
+</section>
+<section class="portfolio-page patterned-section">
+  <div class="container portfolio-masonry">
+    {% for item in portfolio %}
+    <article class="masonry-card reveal">
+      <img src="{% static item.image %}" alt="{{ item.name }}">
+      <div class="masonry-copy">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.desc }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <p class="section-kicker">&lt;&gt; our services &lt;/&gt;</p>
+    <h1 class="page-title">Our Services</h1>
+    <p class="page-sub">This page shows only your services.</p>
+  </div>
+</section>
+<section class="services-home patterned-section">
+  <div class="container">
+    <div class="service-list">
+      {% for service in services %}
+      <article class="service-row reveal">
+        <div class="service-icon"></div>
+        <div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.text }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
