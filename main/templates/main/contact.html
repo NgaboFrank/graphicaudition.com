@@ -1,0 +1,95 @@
+
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <a href="/" class="back-link">← Back</a>
+    <p class="section-kicker">&lt;&gt; contact us &lt;/&gt;</p>
+    <h1 class="page-title">Send Us a Message</h1>
+    <p class="page-sub">This form sends directly to graphicaudition@gmail.com when Gmail is configured in Render.</p>
+  </div>
+</section>
+
+<section class="contact-form-section patterned-section">
+  <div class="container contact-form-grid premium-contact-grid">
+    <div class="contact-card reveal">
+      <h2>Let’s talk about your next project</h2>
+      <p class="contact-intro">Fill in the form and we’ll receive it by email.</p>
+
+      {% if success %}
+      <div class="form-alert success">{{ success }}</div>
+      {% endif %}
+      {% if error %}
+      <div class="form-alert error">{{ error }}</div>
+      {% endif %}
+
+      <form method="post" class="contact-form-real">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" name="name" value="{{ form_data.name|default:'' }}" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" value="{{ form_data.email|default:'' }}" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" type="text" name="phone" value="{{ form_data.phone|default:'' }}" required>
+          </div>
+          <div class="form-field">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="Brand Identity" {% if form_data.service == 'Brand Identity' %}selected{% endif %}>Brand Identity</option>
+              <option value="Social Media Design" {% if form_data.service == 'Social Media Design' %}selected{% endif %}>Social Media Design</option>
+              <option value="Flyer & Poster Design" {% if form_data.service == 'Flyer & Poster Design' %}selected{% endif %}>Flyer &amp; Poster Design</option>
+              <option value="Web Design" {% if form_data.service == 'Web Design' %}selected{% endif %}>Web Design</option>
+              <option value="Mockups & Presentation" {% if form_data.service == 'Mockups & Presentation' %}selected{% endif %}>Mockups &amp; Presentation</option>
+              <option value="Campaign Visuals" {% if form_data.service == 'Campaign Visuals' %}selected{% endif %}>Campaign Visuals</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" rows="7" required>{{ form_data.message|default:'' }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-yellow submit-btn">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="contact-side-card reveal delay-1">
+      <p class="mini-contact-label">Direct contact</p>
+      <h3>Graphic Audition</h3>
+
+      <div class="contact-option">
+        <span>Email</span>
+        <strong>{{ contact_email }}</strong>
+      </div>
+
+      <div class="contact-option">
+        <span>Phone</span>
+        <strong>{{ phone_display }}</strong>
+      </div>
+
+      <div class="contact-option">
+        <span>Instagram</span>
+        <strong>{{ instagram_handle }}</strong>
+      </div>
+
+      <ul class="contact-benefits">
+        <li>Premium visual presentation</li>
+        <li>Clear communication</li>
+        <li>Fast project direction</li>
+        <li>Better mobile appearance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
