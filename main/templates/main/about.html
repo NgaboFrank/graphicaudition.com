@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    <p class="section-kicker">&lt;&gt; about us &lt;/&gt;</p>
+    <h1 class="page-title">About Graphic Audition</h1>
+    <p class="page-sub">A cleaner, stronger company story with a more premium presentation style.</p>
+  </div>
+</section>
+
+<section class="about-toplink-section patterned-section">
+  <div class="container about-toplink-grid">
+    <div class="about-toplink-copy reveal">
+      <p class="section-kicker">About Us</p>
+      <h2>Creative design that helps brands look trusted, modern, and ready to grow.</h2>
+      <p>Graphic Audition is a design studio focused on visual quality, consistency, and strong brand presentation. We help businesses turn ideas into clean brand identity, social content, flyers, mockups, and websites that look professional on every screen.</p>
+      <p>Our process is simple: understand the brand, shape the message, and design visuals that people remember. We care about clarity, speed, and a finished look that feels premium from the first impression.</p>
+      <div class="about-pill-row">
+        <span>Brand Identity</span>
+        <span>Social Media Design</span>
+        <span>Web Design</span>
+      </div>
+    </div>
+    <div class="about-toplink-visual reveal delay-1">
+      <div class="about-visual-card main">
+        <img src="{% static 'main/images/ga-creative-flyer.jpg' %}" alt="Graphic Audition creative work">
+      </div>
+      <div class="about-visual-card mini one">
+        <img src="{% static 'main/images/cent-logo.jpg' %}" alt="Graphic Audition logo presentation">
+      </div>
+      <div class="about-visual-card mini two">
+        <img src="{% static 'main/images/nova-brand.jpg' %}" alt="Graphic Audition brand presentation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-values-section patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; our strengths &lt;/&gt;</p>
+      <h2>Why brands choose Graphic Audition</h2>
+    </div>
+    <div class="about-values-grid">
+      <article class="about-value-card reveal">
+        <h3>Strategy-led creativity</h3>
+        <p>Every design is shaped around message, audience, and presentation, not just decoration.</p>
+      </article>
+      <article class="about-value-card reveal">
+        <h3>Clean premium execution</h3>
+        <p>We focus on balance, readability, and modern design choices that help brands feel serious.</p>
+      </article>
+      <article class="about-value-card reveal">
+        <h3>Reliable collaboration</h3>
+        <p>We keep communication clear, revisions focused, and delivery smooth from start to finish.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="contact-hero contact-hero-premium">
+  <div class="container contact-hero-wrap">
+    <div class="contact-copy reveal">
+      <a href="javascript:history.back()" class="back-btn back-btn-light">← Back</a>
+      <p class="section-kicker light">&lt;&gt; get in touch &lt;/&gt;</p>
+      <h1>Let’s talk about your next project.</h1>
+      <p>Tell us what you need and we’ll help you with branding, design, social media content, or a website that looks professional and clear.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section patterned-section">
+  <div class="container contact-form-grid premium-contact-grid">
+    <div class="contact-card reveal">
+      <h2>Send Us a Message</h2>
+      <p class="contact-intro">This form sends directly to {{ contact_email }} when Gmail is configured in Render.</p>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="form-alert {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" class="contact-real-form" novalidate>
+        {% csrf_token %}
+        <div class="form-grid-two">
+          <div class="field-group">
+            <label for="id_name">Full Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}<small class="field-error">{{ form.name.errors|striptags }}</small>{% endif %}
+          </div>
+          <div class="field-group">
+            <label for="id_email">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}<small class="field-error">{{ form.email.errors|striptags }}</small>{% endif %}
+          </div>
+        </div>
+
+        <div class="form-grid-two">
+          <div class="field-group">
+            <label for="id_phone">Phone / WhatsApp</label>
+            {{ form.phone }}
+            {% if form.phone.errors %}<small class="field-error">{{ form.phone.errors|striptags }}</small>{% endif %}
+          </div>
+          <div class="field-group">
+            <label for="id_service">Service Needed</label>
+            {{ form.service }}
+            {% if form.service.errors %}<small class="field-error">{{ form.service.errors|striptags }}</small>{% endif %}
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="id_message">Project Details</label>
+          {{ form.message }}
+          {% if form.message.errors %}<small class="field-error">{{ form.message.errors|striptags }}</small>{% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-yellow submit-btn">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="contact-side-card reveal delay-1">
+      <p class="mini-contact-label">Direct contact</p>
+      <h3>Graphic Audition</h3>
+      <div class="contact-option">
+        <span>Email</span>
+        <strong>{{ contact_email }}</strong>
+      </div>
+      <div class="contact-option">
+        <span>Phone</span>
+        <strong>{{ phone_display }}</strong>
+      </div>
+      <div class="contact-option">
+        <span>Instagram</span>
+        <strong>@graphic_auditions</strong>
+      </div>
+      <ul class="contact-benefits">
+        <li>Premium visual presentation</li>
+        <li>Clear communication</li>
+        <li>Fast project direction</li>
+        <li>Better mobile appearance</li>
+      </ul>
+      <div class="contact-buttons">
+        <a href="mailto:{{ contact_email }}" class="btn btn-outline-blue full-btn">EMAIL NOW</a>
+        <a href="https://wa.me/{{ phone_link }}?text=Hello%20Graphic%20Audition%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noreferrer" class="btn btn-yellow full-btn">START ON WHATSAPP</a>
+        <a href="/portfolio/" class="btn btn-outline-blue full-btn">SEE OUR WORK</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
