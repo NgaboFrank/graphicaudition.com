@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container">
+    <a href="/" class="back-link">← Back to Home</a>
+    <p class="section-kicker">&lt;&gt; contact us &lt;/&gt;</p>
+    <h1 class="page-title">Let’s talk about your project</h1>
+    <p class="page-sub">Send your project details and the message will go to graphicaudition@gmail.com.</p>
+  </div>
+</section>
+
+<section class="contact-form-section patterned-section">
+  <div class="container contact-form-grid premium-contact-grid">
+    <div class="contact-copy reveal">
+      <h2>Start your next design project</h2>
+      <p>Use the form to send your request directly to our inbox. You can also reach us by phone or Instagram.</p>
+      <div class="contact-info-card">
+        <strong>Email</strong>
+        <span>{{ email }}</span>
+      </div>
+      <div class="contact-info-card">
+        <strong>Phone</strong>
+        <span>{{ phone_display }}</span>
+      </div>
+      <div class="contact-info-card">
+        <strong>Instagram</strong>
+        <span>@graphic_auditions</span>
+      </div>
+    </div>
+
+    <form method="POST" class="contact-form-card reveal delay-1">
+      {% csrf_token %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="form-alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+      <div class="form-row two-col">
+        <div>
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+      </div>
+      <div class="form-row two-col">
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="text">
+        </div>
+        <div>
+          <label for="service">Service Needed</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option>Brand Identity</option>
+            <option>Social Media Design</option>
+            <option>Flyer & Poster Design</option>
+            <option>Website Design</option>
+            <option>Campaign Visuals</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="7" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-yellow full-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
