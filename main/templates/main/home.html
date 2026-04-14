@@ -1,0 +1,179 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<main>
+<section class="hero-section hero-toplink hero-premium-100">
+  <div class="container hero-grid refined-hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Graphic Audition #CreativeGrowth</p>
+      <h1>Your Partner For Your Brand’s Visual Growth!</h1>
+      <p class="hero-text">
+        We craft high-quality, conversion-focused branding, social media visuals, flyers, mockups, and websites that help your business stand out with confidence.
+      </p>
+      <div class="hero-actions">
+        <a href="/portfolio/" class="btn btn-yellow">VIEW OUR WORK</a>
+        <a href="/contact/" class="btn btn-link top-link-style">GET IN TOUCH <span>→</span></a>
+      </div>
+      <div class="hero-stats">
+        {% for stat in stats %}
+        <div class="stat-pill">
+          <strong>{{ stat.number }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hero-premium-panel reveal delay-1">
+      <div class="toplink-showcase-card">
+        <div class="showcase-label">Featured Creative</div>
+        <img src="{% static 'main/images/ga-creative-flyer.jpg' %}" alt="Featured creative work">
+      </div>
+      <div class="hero-floating-badge badge-one">
+        <span>Brand Identity</span>
+      </div>
+      <div class="hero-floating-badge badge-two">
+        <span>Website Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item reveal">
+      <strong>Creative Direction</strong>
+      <span>Premium visuals for serious brands</span>
+    </div>
+    <div class="trust-item reveal">
+      <strong>Fast Communication</strong>
+      <span>Clear updates and smooth revisions</span>
+    </div>
+    <div class="trust-item reveal">
+      <strong>Mobile Friendly</strong>
+      <span>Modern layouts that work on phone</span>
+    </div>
+  </div>
+</section>
+
+<section class="quick-services-section patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; our services &lt;/&gt;</p>
+      <h2>What can we Do ?</h2>
+    </div>
+    <div class="quick-services-grid">
+      {% for service in services %}
+      <article class="quick-service-card reveal">
+        <div class="service-dot"></div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="about-section patterned-section">
+  <div class="container split-grid">
+    <div class="section-copy reveal">
+      <p class="section-kicker">&lt;&gt; about Us &lt;/&gt;</p>
+      <h2>Who we are</h2>
+      <p class="about-lead">At Graphic Audition,</p>
+      <p>We create high-impact visual design for brands that want to look modern and professional. Our work combines presentation, structure, and clarity so every design feels strong from the first impression.</p>
+      <a href="/about/" class="btn btn-yellow">LEARN MORE</a>
+    </div>
+    <div class="feature-stack reveal delay-1">
+      <article class="feature-highlight">
+        <h3>Professional presentation</h3>
+        <p>Layouts built to feel premium, balanced, and easy to trust.</p>
+      </article>
+      <article class="feature-highlight">
+        <h3>Stronger online image</h3>
+        <p>Creative visuals shaped to improve brand perception and attention.</p>
+      </article>
+      <article class="feature-highlight">
+        <h3>Built for growth</h3>
+        <p>Design systems that support campaigns, content, and website visibility.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="featured-work-home patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; selected work &lt;/&gt;</p>
+      <h2>The stories we've told</h2>
+      <p class="section-sub">A premium preview of your design work without crowding the homepage.</p>
+    </div>
+    <div class="featured-work-grid">
+      {% for item in portfolio|slice:":3" %}
+      <article class="home-work-card reveal">
+        <div class="home-work-image">
+          <img src="{% static item.image %}" alt="{{ item.name }}">
+        </div>
+        <div class="home-work-copy">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="center-btn">
+      <a href="/portfolio/" class="btn btn-outline-blue">OPEN FULL PORTFOLIO</a>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container why-grid">
+    <div class="why-copy reveal">
+      <p class="section-kicker dark">&lt;&gt; why choose us &lt;/&gt;</p>
+      <h2>What sets us apart</h2>
+      <p>We combine creative direction, clean presentation, and a client-focused process to build visuals that feel premium and communicate clearly.</p>
+      <a href="/contact/" class="btn btn-yellow">GET A QUOTE</a>
+    </div>
+    <div class="why-cards">
+      {% for reason in reasons %}
+      <article class="why-card reveal">
+        <h3>{{ reason.title }}</h3>
+        <p>{{ reason.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section patterned-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker">&lt;&gt; testimonials &lt;/&gt;</p>
+      <h2>Client Reviews</h2>
+    </div>
+    <div class="review-grid">
+      {% for review in testimonials %}
+      <article class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <h3>{{ review.name }}</h3>
+        <p>{{ review.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section cta-section-strong">
+  <div class="container cta-wrap reveal">
+    <div class="cta-copy">
+      <p class="section-kicker light">&lt;&gt; contact us &lt;/&gt;</p>
+      <h2>Let’s amplify your ideas and build something strong for your brand.</h2>
+      <p>Reach out for branding, social media design, flyer design, mockups, and website work.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="/contact/" class="btn btn-yellow">GET IN TOUCH</a>
+      <a href="{{ instagram_url }}" target="_blank" rel="noreferrer" class="btn btn-outline-light">INSTAGRAM</a>
+    </div>
+  </div>
+</section>
+</main>
+{% endblock %}
