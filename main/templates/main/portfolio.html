@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}{% load static %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container page-hero-grid">
+    <div>
+      <p class="section-kicker">&lt;&gt; selected work &lt;/&gt;</p>
+      <h1 class="page-title">A portfolio shaped by cleaner design and stronger presentation.</h1>
+      <p class="page-sub">This collection highlights campaign visuals, branding presentations, flyers, mockups, and social media work created by Graphic Audition for different creative needs.</p>
+    </div>
+    <div class="page-hero-card">
+      <div class="hero-mini-stat">
+        <strong>{{ portfolio|length }}</strong>
+        <span>Portfolio samples</span>
+      </div>
+      <div class="hero-mini-stat">
+        <strong>Brand</strong>
+        <span>Campaigns & visuals</span>
+      </div>
+      <div class="hero-mini-stat">
+        <strong>Studio</strong>
+        <span>Quality presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-page patterned-section">
+  <div class="container portfolio-intro-bar">
+    <div class="portfolio-filter-chip active-chip">All Work</div>
+    <div class="portfolio-filter-chip">Branding</div>
+    <div class="portfolio-filter-chip">Campaigns</div>
+    <div class="portfolio-filter-chip">Social Media</div>
+  </div>
+
+  <div class="container portfolio-masonry premium-masonry">
+    {% for item in portfolio %}
+    <article class="masonry-card reveal">
+      <img src="{% static item.image %}" alt="{{ item.name }}">
+      <div class="masonry-copy">
+        <span class="masonry-tag">Graphic Audition</span>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.desc }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="portfolio-summary-section">
+  <div class="container summary-grid">
+    <div class="summary-card reveal">
+      <h3>Work that looks ready</h3>
+      <p>Every piece is presented to feel polished, modern, and immediately usable for brands that want stronger visual credibility.</p>
+    </div>
+    <div class="summary-card reveal delay-1">
+      <h3>Built for attention</h3>
+      <p>Our portfolio reflects design choices made to improve visibility, first impression, and content performance.</p>
+    </div>
+    <div class="summary-card reveal">
+      <h3>Premium creative direction</h3>
+      <p>From brand campaigns to single visuals, the direction stays consistent, clean, and intentional.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ brand_name }} | {{ page_title }}</title>
+  <meta name="description" content="Graphic Audition premium creative studio for branding, content, graphics, and websites.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/" class="brand-mark">
+      <img src="{% static 'main/images/logo.png' %}" alt="Graphic Audition logo" class="brand-logo-img">
+      <div class="brand-text">
+        <strong>Graphic Audition</strong>
+        <small>Creative Studio • Design • Web</small>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/services/">Services</a>
+      <a href="/about/">About</a>
+      <a href="/contact/" class="nav-cta">Start a Project</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer class="site-footer premium-footer">
+  <div class="container footer-top">
+    <div class="footer-brand-card">
+      <img src="{% static 'main/images/logo.png' %}" alt="Graphic Audition logo" class="footer-logo">
+      <div>
+        <h3>Graphic Audition</h3>
+        <p>Premium creative design studio building stronger visual identities, social content, and digital presentation for modern brands.</p>
+      </div>
+    </div>
+    <div class="footer-cta-card">
+      <p class="footer-kicker">Ready to build something premium?</p>
+      <a href="https://wa.me/{{ phone_link }}?text=Hello%20Graphic%20Audition%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noreferrer" class="btn btn-yellow">CHAT ON WHATSAPP</a>
+    </div>
+  </div>
+
+  <div class="container footer-grid">
+    <div>
+      <h4>Studio</h4>
+      <p class="footer-line">Graphic Audition helps brands look clearer, stronger, and more premium through thoughtful visual design.</p>
+      <p class="footer-line">Phone: <a href="tel:{{ phone_link }}">{{ phone_display }}</a></p>
+      <p class="footer-line">Instagram: <a href="{{ instagram_url }}" target="_blank" rel="noreferrer">@graphic_auditions</a></p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul class="footer-links">
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Core Services</h4>
+      <ul class="footer-links">
+        <li>Brand Identity Design</li>
+        <li>Social Media Design</li>
+        <li>Flyers & Campaign Visuals</li>
+        <li>Website Presentation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>Copyright by Graphic Audition. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/{{ phone_link }}?text=Hello%20Graphic%20Audition%2C%20I%20need%20your%20services." target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">◉</a>
+<script src="{% static 'main/js/main.js' %}"></script>
+</body>
+</html>

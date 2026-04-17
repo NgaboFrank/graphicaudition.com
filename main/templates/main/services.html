@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<section class="page-hero patterned-section">
+  <div class="container page-hero-grid">
+    <div>
+      <p class="section-kicker">&lt;&gt; premium services &lt;/&gt;</p>
+      <h1 class="page-title">Creative services built to make your brand look stronger.</h1>
+      <p class="page-sub">Graphic Audition delivers premium creative support for businesses, personal brands, campaigns, and organizations that want cleaner presentation and more confident visual communication.</p>
+    </div>
+    <div class="page-hero-card">
+      <div class="hero-mini-stat">
+        <strong>{{ services|length }}</strong>
+        <span>Core services</span>
+      </div>
+      <div class="hero-mini-stat">
+        <strong>Premium</strong>
+        <span>Presentation quality</span>
+      </div>
+      <div class="hero-mini-stat">
+        <strong>Fast</strong>
+        <span>Creative response</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-premium-section patterned-section">
+  <div class="container premium-service-grid">
+    {% for service in services %}
+    <article class="premium-service-card reveal">
+      <div class="premium-service-top">
+        <span class="service-number">0{{ forloop.counter }}</span>
+        <div class="service-accent"></div>
+      </div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.text }}</p>
+      <div class="service-tag">Graphic Audition Premium Service</div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-kicker dark">&lt;&gt; our process &lt;/&gt;</p>
+      <h2>How we work with clients</h2>
+    </div>
+    <div class="process-grid">
+      <article class="process-card reveal">
+        <span>01</span>
+        <h3>Understand the need</h3>
+        <p>We start by understanding your audience, offer, and the visual direction your brand needs.</p>
+      </article>
+      <article class="process-card reveal delay-1">
+        <span>02</span>
+        <h3>Design with clarity</h3>
+        <p>We focus on balanced layouts, stronger hierarchy, and premium styling that improves trust.</p>
+      </article>
+      <article class="process-card reveal">
+        <span>03</span>
+        <h3>Deliver for real use</h3>
+        <p>Your final visuals are made to work well on social media, campaigns, presentations, and web use.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section cta-section-strong">
+  <div class="container cta-wrap reveal">
+    <div class="cta-copy">
+      <p class="section-kicker light">&lt;&gt; start now &lt;/&gt;</p>
+      <h2>Need a premium creative partner?</h2>
+      <p>Let Graphic Audition help you create work that feels modern, polished, and ready for real business growth.</p>
+    </div>
+    <a href="/contact/" class="btn btn-yellow">GET IN TOUCH</a>
+  </div>
+</section>
+{% endblock %}
