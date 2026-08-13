@@ -1,0 +1,107 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<section class="contact-hero contact-hero-premium">
+  <div class="container contact-hero-wrap">
+    <div class="contact-copy reveal">
+
+      {% if payment_status == "completed" %}
+        <p class="section-kicker light">&lt;&gt; payment successful &lt;/&gt;</p>
+        <h1>Payment Successful</h1>
+      {% elif payment_status == "cancelled" %}
+        <p class="section-kicker light">&lt;&gt; payment cancelled &lt;/&gt;</p>
+        <h1>Payment Cancelled</h1>
+      {% elif payment_status == "failed" %}
+        <p class="section-kicker light">&lt;&gt; payment failed &lt;/&gt;</p>
+        <h1>Payment Failed</h1>
+      {% else %}
+        <p class="section-kicker light">&lt;&gt; payment status &lt;/&gt;</p>
+        <h1>Payment Status</h1>
+      {% endif %}
+
+      <p>
+        {{ payment_message }}
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section patterned-section">
+  <div class="container">
+
+    <div
+      class="contact-card reveal"
+      style="max-width: 700px; margin: 0 auto; text-align: center;"
+    >
+
+      {% if payment_status == "completed" %}
+
+        <h2>Thank you!</h2>
+
+        <p class="contact-intro">
+          Your payment has been received successfully.
+          Graphic Audition will contact you regarding your project.
+        </p>
+
+      {% elif payment_status == "cancelled" %}
+
+        <h2>Payment Cancelled</h2>
+
+        <p class="contact-intro">
+          No payment was completed.
+          You can return to the payment page whenever you are ready.
+        </p>
+
+      {% elif payment_status == "failed" %}
+
+        <h2>Payment Failed</h2>
+
+        <p class="contact-intro">
+          The payment could not be completed.
+          Please try again or contact Graphic Audition.
+        </p>
+
+      {% else %}
+
+        <h2>Payment Processing</h2>
+
+        <p class="contact-intro">
+          Your payment status is still being checked.
+          Please contact Graphic Audition if you need assistance.
+        </p>
+
+      {% endif %}
+
+      {% if tracking_id %}
+        <div class="contact-option" style="margin-top: 25px;">
+          <span>Transaction Reference</span>
+          <strong>{{ tracking_id }}</strong>
+        </div>
+      {% endif %}
+
+      <div class="contact-buttons" style="margin-top: 25px;">
+
+        <a
+          href="{% url 'payment' %}"
+          class="btn btn-yellow full-btn"
+        >
+          MAKE ANOTHER PAYMENT
+        </a>
+
+        <a
+          href="{% url 'home' %}"
+          class="btn btn-outline-blue full-btn"
+        >
+          BACK TO HOME
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
